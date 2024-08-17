@@ -19,15 +19,15 @@ class TestBooksCollector:
         books_collector.add_new_book(invalid_name)
         assert len(books_collector.books_genre) == 0
 
-    def test_set_book_genre(self, books_collector):
+    def test_set_book_genre_true(self, books_collector):
         books_collector.add_new_book("Космические пираты")
         books_collector.set_book_genre("Космические пираты", "Фантастика")
         assert books_collector.books_genre["Космические пираты"] == "Фантастика"
 
-    def test_get_book_genre(self, books_collector):
+    def test_get_book_genre_true(self, books_collector):
         books_collector.add_new_book("Космические пираты")
         books_collector.set_book_genre("Космические пираты", "Фантастика")
-        assert books_collector.get_books_genre["Космические пираты"] == "Фантастика"
+        assert books_collector.get_book_genre("Космические пираты") == "Фантастика"
         assert books_collector.get_book_genre("Нет книги") is None
 
     @pytest.mark.parametrize(
@@ -38,7 +38,7 @@ class TestBooksCollector:
             ("Комедии", ["Приключения Шурика"])
         ]
     )
-    def test_get_books_with_specific_genre(self, books_collector, genre, name_book):
+    def test_get_books_with_specific_genre_true(self, books_collector, genre, name_book):
         books_collector.add_new_book("Космические пираты")
         books_collector.add_new_book("Колобок")
         books_collector.add_new_book("Приключения Шурика")
