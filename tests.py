@@ -81,7 +81,7 @@ class TestBooksCollector:
         books_collector.delete_book_from_favorites("Приключения Шурика")
         assert "Приключения Шурика" not in books_collector.favorites
 
-    def (self, books_collector):
+    def tests_get_list_of_favorites_books_true(self, books_collector):
         books_collector.add_new_book("Космические пираты")
         books_collector.add_new_book("Колобок")
 
